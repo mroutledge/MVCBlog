@@ -3,3 +3,41 @@
 2014-02-20 15:52:30,957 [10] INFO  MVCBlog.Core.Commands.CommandLoggingDecorator`1[[MVCBlog.Core.Commands.UpdateBlogEntryCommand, MVCBlog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] [(null)] - Executing command UpdateBlogEntryCommand
 2014-02-20 15:52:39,029 [5] INFO  MVCBlog.Core.Commands.CommandLoggingDecorator`1[[MVCBlog.Core.Commands.DeleteBlogEntryCommand, MVCBlog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] [(null)] - Executing command DeleteBlogEntryCommand
 2014-09-22 21:01:00,913 [14] INFO  MVCBlog.Core.Commands.CommandLoggingDecorator`1[[MVCBlog.Core.Commands.DeleteBlogEntryCommand, MVCBlog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] [(null)] - Executing command DeleteBlogEntryCommand
+2014-09-24 09:12:14,609 [5] INFO  MVCBlog.Core.Commands.CommandLoggingDecorator`1[[MVCBlog.Core.Commands.AddOrUpdateSingleFeedUserCommand, MVCBlog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] [(null)] - Executing command AddOrUpdateSingleFeedUserCommand
+2014-09-24 09:12:24,859 [7] ERROR MVCBlog.Core.Database.DatabaseContext [(null)] - Saving to database failed
+System.Data.Entity.Core.EntityException: An error occurred while starting a transaction on the provider connection. See the inner exception for details. ---> System.InvalidOperationException: There is already an open DataReader associated with this Command which must be closed first.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)
+   at System.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at System.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.Common.DbConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<>c__DisplayClassd.<BeginDbTransaction>b__b()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.Common.DbConnection.BeginTransaction()
+   at System.Data.Entity.Core.EntityClient.EntityConnection.BeginTransaction()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3b`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStoreAsync>d__37.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesInternalAsync>d__2f.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at MVCBlog.Core.Database.DatabaseContext.<SaveChangesAsync>d__8.MoveNext() in c:\Projects\MVCBlog\src\MVCBlog.Core\Database\DatabaseContext.cs:line 85
+2014-09-24 09:38:17,317 [11] INFO  MVCBlog.Core.Commands.CommandLoggingDecorator`1[[MVCBlog.Core.Commands.UpdateCommand`1[[MVCBlog.Core.Entities.BlogEntry, MVCBlog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], MVCBlog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] [(null)] - Executing command UpdateCommand`1
+2014-09-24 09:38:34,693 [6] INFO  MVCBlog.Core.Commands.CommandLoggingDecorator`1[[MVCBlog.Core.Commands.UpdateCommand`1[[MVCBlog.Core.Entities.BlogEntry, MVCBlog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], MVCBlog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] [(null)] - Executing command UpdateCommand`1
