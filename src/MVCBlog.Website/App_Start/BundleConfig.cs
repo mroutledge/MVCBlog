@@ -22,7 +22,7 @@ namespace MVCBlog.Website
 
             bundles.Add(new StyleBundle("~/css/combined")
                 .Include(
-                    "~/Content/bootstrap.css",
+                    "~/Content/bootstrap.slate.css",
                     "~/Content/custom.css",
                     "~/Content/lightbox.css",
                     "~/Content/jquery.autocomplete.css",
