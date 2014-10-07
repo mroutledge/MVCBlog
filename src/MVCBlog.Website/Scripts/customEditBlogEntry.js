@@ -1,10 +1,10 @@
 tinyMCE.init({
-    mode : "none",
+    mode: "none",
     theme: "advanced",
-    convert_urls : false,
-    forced_root_block : false,
-    force_br_newlines : true,
-    force_p_newlines : false,
+    convert_urls: false,
+    forced_root_block: false,
+    force_br_newlines: true,
+    force_p_newlines: false,
     plugins: "table,advimage,advlink,inlinepopups,preview,searchreplace,paste,fullscreen,noneditable,nonbreaking,xhtmlxtras,wordcount,syntaxhighlighter",
 
     theme_advanced_buttons1: "bold,italic,underline,strikethrough,cite,|,formatselect,fontsizeselect,|,forecolor,backcolor,|,outdent,indent,|,undo,redo,|,search,replace,|,cleanup,preview,fullscreen,code",
@@ -16,7 +16,7 @@ tinyMCE.init({
     theme_advanced_statusbar_location: "bottom",
     theme_advanced_resizing: true
 });
-        
+
 function toggleEdtitor(id) {
     if (!tinyMCE.get(id)) {
         tinyMCE.execCommand('mceAddControl', false, id);
@@ -24,7 +24,7 @@ function toggleEdtitor(id) {
         tinyMCE.execCommand('mceRemoveControl', false, id);
     }
 }
-            
+
 function selectImage(ev) {
     var url = $("#ImageDropDown").val();
     if (url != '') {
@@ -42,29 +42,46 @@ function selectImage(ev) {
         $("#ImagePreview").attr('alt', '');
     }
 }
-        
+
 function updateShortContentCounter() {
     $("#ShortContentCounter").html(1500 - $("#BlogEntry_ShortContent").val().length);
 }
-        
-$(function() {
-    $("#toggleShortContentEditor").click(function(ev) {
+
+$(function () {
+    $("#toggleShortContentEditor").click(function (ev) {
         ev.preventDefault();
-        toggleEdtitor("BlogEntry_ShortContent");
+        tinymce.init({
+            selector: "#BlogEntry_ShortContent",
+            plugins: [
+                "advlist autolink lists link image charmap preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        });
+
     });
-    $("#toggleContentEditor").click(function(ev) {
+    $("#toggleContentEditor").click(function (ev) {
         ev.preventDefault();
-        toggleEdtitor("BlogEntry_Content");
+        tinymce.init({
+            selector: "#BlogEntry_Content",
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        });
     });
-            
-    $("a.addImage").click(function() {
+
+    $("a.addImage").click(function () {
         $("#imageHelper").css("visibility", "visible");
     });
-    $("#closeImageLink").click(function() {
+    $("#closeImageLink").click(function () {
         $("#imageHelper").css("visibility", "hidden");
     });
     $("#ImageDropDown").change(selectImage);
-            
+
     $("#BlogEntry_ShortContent").keyup(updateShortContentCounter);
     updateShortContentCounter();
 });

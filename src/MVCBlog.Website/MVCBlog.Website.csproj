@@ -239,7 +239,7 @@
   <ItemGroup>
     <Content Include="apple-touch-icon.png" />
     <Content Include="App_Data\db.sdf" />
-    <Content Include="App_Data\log.txt" />
+    <None Include="App_Data\log.txt" />
     <Content Include="blogcontent\blogimages\71574153-81e0-4b3e-82a2-4411afb2e728.gif" />
     <Content Include="blogcontent\blogimages\84384293-13ae-404a-9556-5d95d5fd83bf.gif" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -262,6 +262,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\tinymce\jquery.tinymce.min.js" />
     <Content Include="Scripts\tinymce\license.txt" />
     <Content Include="Scripts\tinymce\plugins\advlist\plugin.js" />
     <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
